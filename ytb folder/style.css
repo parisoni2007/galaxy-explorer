@@ -1,0 +1,1064 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  body {
+  margin: 0;
+  padding: 0;
+  background-image: url('YTB FOLDER/ background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1; /* So it stays behind your content */
+}
+
+}
+
+body, html {
+  height: 100%;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+canvas#starCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #000000 0%, #000011 100%);
+}
+
+.main-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.main-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+}
+
+.main-header p {
+  font-size: 1.3rem;
+  color: #aad8ff;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0 40px;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.navbar ul li a {
+  color: #aad8ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 3px #00e6ff;
+}
+
+.navbar ul li a:hover {
+  background: #00e6ff;
+  color: black;
+  box-shadow: 0 0 15px #00e6ff;
+}
+
+.intro {
+  text-align: center;
+  padding: 40px;
+  animation: floatText 3s infinite alternate ease-in-out;
+}
+
+#planets {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 40px;
+}
+
+.planet-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.planet-card:hover {
+  transform: scale(1.05);
+}
+
+.planet-card img {
+  width: 120px;
+  height: 120px;
+  animation: spin 30s linear infinite;
+}
+
+.planet:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #00ffffcc;
+}
+
+.planet img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  animation: spin 20s linear infinite;
+}
+
+.planet h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+}
+
+.planet p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #aad8ffcc;
+}
+
+.gallery {
+  padding: 40px;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: fadeZoom 3s ease forwards;
+  opacity: 0;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  animation: fadeZoom 0.5s ease-in-out;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 10px cyan;
+}
+
+.lightbox .close:hover {
+  color: cyan;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+canvas#starCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+}
+
+.games {
+  padding: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03); /* Semi-transparent dark background */
+  animation: fadeInUp 2s ease forwards;
+  opacity: 0;
+  border-top: 1px solid #00e6ff33;
+  opacity: 1; /* FIX: force visible */
+}
+
+.games h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.games p {
+  font-size: 1.2rem;
+  color: #aad8ff;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Game card style */
+.game-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  animation: float 3s infinite alternate ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #ffffff;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.game-card h3 {
+  color: #00e6ff;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #00e6ff;
+}
+
+.game-card p {
+  font-size: 1.1rem;
+  color: #aad8ff;
+  margin-bottom: 20px;
+}
+
+.game-card button {
+  padding: 12px 25px;
+  border: none;
+  background-color: #00e6ff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 10px #00e6ff99;
+}
+
+.game-card button:hover {
+  background-color: #00b8cc;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffffaa;
+}
+
+.quiz-section {
+  padding: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  margin: 50px auto;
+  max-width: 600px;
+  box-shadow: 0 0 20px #00ffff44;
+  animation: fadeIn 2s ease;
+}
+
+.quiz-section h2 {
+  font-size: 2rem;
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+}
+
+.quiz-box, .quiz-result {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #aad8ff;
+}
+.quiz-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  border-radius: 20px;
+}
+.quiz-box {
+  position: relative;
+  z-index: 1;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  background-color: #112233;
+  color: #aad8ff;
+  padding: 12px;
+  border: 1px solid #00e6ff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: #00e6ff;
+  color: black;
+}
+
+.correct {
+  background-color: #00ff88;
+  color: black;
+}
+
+.wrong {
+  background-color: #ff4444;
+  color: white;
+}
+
+.start-btn, .next-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #00e6ff;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff88;
+  transition: transform 0.3s ease;
+}
+
+.start-btn:hover, .next-btn:hover {
+  transform: scale(1.05);
+  background-color: #00b8cc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.solar-system {
+ position: relative;
+  width: 800px;
+  height: 800px;
+  margin: 40px auto;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #000 0%, #111 100%);
+  border: 2px solid #444;
+  overflow: visible;
+}
+
+.sun {
+ position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffaa00, #ff5500);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px #ffaa00;
+}
+
+.orbit {
+   position: absolute;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: pointer;
+  animation: orbit 20s linear infinite;
+}
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  background: radial-gradient(circle at center, #020024 0%, #090979 35%, #000000 100%);
+  color: white;
+  text-align: center;
+}
+.planet-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.planet-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 255, 255, 0.6);
+}
+.planet-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.planet-card h2 {
+  font-size: 1.4rem;
+  margin: 10px 0 5px;
+}
+
+.planet-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+@media (max-width: 600px) {
+  .planet-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .planet-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .planet-card p {
+    font-size: 0.85rem;
+  }
+}
+.orbit .planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+}
+
+.planet.mercury { width: 8px; height: 8px; background: gray; animation-duration: 10s; }
+.planet.venus   { width: 10px; height: 10px; background: orange; animation-duration: 15s; }
+.planet.earth   { width: 12px; height: 12px; background: blue; animation-duration: 20s; }
+.planet.mars    { width: 10px; height: 10px; background: red; animation-duration: 25s; }
+.planet.jupiter { width: 18px; height: 18px; background: tan; animation-duration: 30s; }
+.planet.saturn  { width: 16px; height: 16px; background: goldenrod; animation-duration: 35s; }
+.planet.uranus  { width: 14px; height: 14px; background: lightblue; animation-duration: 40s; }
+.planet.neptune { width: 14px; height: 14px; background: royalblue; animation-duration: 45s; }
+
+
+.orbit.mercury { width: 100px; height: 100px; }
+.orbit.venus   { width: 140px; height: 140px; }
+.orbit.earth   { width: 180px; height: 180px; }
+.orbit.mars    { width: 220px; height: 220px; }
+.orbit.jupiter { width: 260px; height: 260px; }
+.orbit.saturn  { width: 300px; height: 300px; }
+.orbit.uranus  { width: 340px; height: 340px; }
+.orbit.neptune { width: 380px; height: 380px; }
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(50%) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(50%) rotate(-360deg);
+  }
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #111;
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 20px #00e6ff;
+}
+
+.modal .close {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #00e6ff;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  #planets {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planet-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .main-header h1 {
+    font-size: 2rem;
+  }
+
+  .main-header p {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #00c3ff;
+  }
+  50% {
+    box-shadow: 0 0 30px #7700ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00c3ff;
+  }
+}
+
+@keyframes flyUp {
+  0% {
+    bottom: -200px;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    bottom: 120%;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+
+@keyframes correctFlash {
+  0% { background-color: #4caf50; transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 255, 255, 1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- Galaxy Quiz Styles --- */
+.quiz-section {
+  background: radial-gradient(circle at center, #0b0f28 0%, #050920 90%);
+  color: #c0d8ff;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #3a3f70, 0 0 30px #1e2394;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.quiz-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  color: #9fd3ff;
+  text-align: center;
+  text-shadow: 0 0 8px #54a0ff;
+}
+
+.quiz-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #aabbee;
+}
+
+.quiz-center {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#usernameInput {
+  padding: 0.5rem 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1.5px solid #4a6eff;
+  background-color: #0d1142;
+  color: #e0eaff;
+  width: 70%;
+  max-width: 300px;
+  margin-right: 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+#usernameInput:focus {
+  outline: none;
+  border-color: #79b7ff;
+  box-shadow: 0 0 10px #79b7ff;
+}
+
+.start-btn {
+  background: linear-gradient(45deg, #2a58ff, #4f9dff);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 12px #4f9dff;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-btn:hover {
+  background: linear-gradient(45deg, #4f9dff, #2a58ff);
+  box-shadow: 0 0 18px #87baff;
+}
+
+.quiz-box {
+  background: rgba(15, 22, 55, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: inset 0 0 10px #2a3a7d;
+  user-select: none;
+}
+
+.quiz-box.hidden {
+  display: none;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #a4c9ff;
+  text-shadow: 0 0 6px #2a65ff;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.option-btn {
+  background: linear-gradient(135deg, #4a6eff, #1e37d1);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  color: #d9e6ff;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1 1 calc(45% - 1rem);
+  max-width: 45%;
+  text-align: center;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #1e37d1;
+  user-select: none;
+}
+
+.option-btn:hover:not(.correct):not(.wrong) {
+  background: linear-gradient(135deg, #6a8eff, #3a59c5);
+  box-shadow: 0 0 18px #3a59c5;
+}
+
+.option-btn.correct {
+  background: #24d14b !important;
+  box-shadow: 0 0 20px #24d14b !important;
+  color: #0d260a !important;
+  cursor: default;
+}
+
+.option-btn.wrong {
+  background: #f44336 !important;
+  box-shadow: 0 0 20px #f44336 !important;
+  color: #3a0000 !important;
+  cursor: default;
+}
+
+.next-btn {
+  display: block;
+  margin: 0 auto;
+  background: #3b44d8;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 14px #3b44d8;
+  transition: background 0.3s ease;
+}
+
+.next-btn:disabled {
+  background: #9099cc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.next-btn:hover:not(:disabled) {
+  background: #5c6afc;
+  box-shadow: 0 0 20px #5c6afc;
+}
+
+.quiz-result {
+  text-align: center;
+  color: #c6dbff;
+  background: rgba(10, 15, 40, 0.85);
+  border-radius: 14px;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 18px #6689ff;
+}
+
+.quiz-result.hidden {
+  display: none;
+}
+
+.quiz-result h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #8eb0ff;
+  text-shadow: 0 0 12px #8eb0ff;
+}
+
+.quiz-result p {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #f0c930;
+  text-shadow: 0 0 10px #f0c930;
+  margin-bottom: 1.2rem;
+}
+
+#badgeDisplay {
+  font-size: 2rem;
+  margin: 0.8rem 0;
+  text-shadow: 0 0 20px #ffe135;
+}
+
+#leaderboard {
+  margin-top: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #a0b8ff;
+  background: rgba(10, 12, 30, 0.75);
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 0 16px #5a7aff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#leaderboard h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #c1d4ff;
+  text-shadow: 0 0 10px #738dff;
+}
+
+#leaderboardList {
+  list-style: none;
+  padding-left: 0;
+}
+
+#leaderboardList li {
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 0 0 6px #99aaff;
+}
+
+#progressBarContainer {
+  width: 100%;
+  background-color: #1e2745;
+  border-radius: 20px;
+  height: 16px;
+  margin-top: 1.5rem;
+  box-shadow: inset 0 0 6px #2a3a75;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #3a5dff, #2ae8ff);
+  border-radius: 20px;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 0 0 10px #2ae8ff;
+}
+
+/* Screenshot Button */
+#screenshotBtn {
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #54c0eb, #1e90ff);
+  box-shadow: 0 0 12px #1e90ff;
+}
+
+#screenshotBtn:hover {
+  background: linear-gradient(45deg, #1e90ff, #54c0eb);
+  box-shadow: 0 0 18px #1e90ff;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .option-btn {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  #usernameInput {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+.flip-section {
+  padding: 4rem 2rem;
+  background: radial-gradient(ellipse at center, #111927 0%, #0a0f1a 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.flip-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #a0cfff;
+}
+
+.flip-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.fact-card {
+  background: #1c2541;
+  width: 280px;
+  height: 220px;
+  perspective: 1000px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #223366;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.fact-card:hover {
+  transform: rotateY(180deg);
+}
+
+.fact-front, .fact-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  font-size: 2.5rem;
+}
+
+.fact-back {
+  background: linear-gradient(145deg, #162032, #0b1525);
+  color: #a0c0ff;
+  font-size: 1rem;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  line-height: 1.5;
+  text-align: center;
+}
+.games-section {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.game-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.game-btn {
+  padding: 15px 25px;
+  background-color: #4b00b5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-btn:hover {
+  background-color: #6a00e0;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(106, 0, 224, 0.6);
+}

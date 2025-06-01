@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galaxy Exploration</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <scroll-behavior: smooth;>
+</head>
+
+<body>
+  
+  <div class="overlay"></div>
+  <canvas id="starCanvas"></canvas>
+
+  <header class="main-header">
+    <h1>Galaxy Exploration</h1>
+    <p>Discover the wonders of the universe</p>
+  </header>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#planets">Planets</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#games"> games</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="intro">
+    <h2>Welcome to the Galaxy</h2>
+    <p>Explore planets, play games, and uncover the secrets of space!</p>
+  </section>
+<section id="encyclopedia" class="encyclopedia-section">
+  <section id="encyclopedia" class="encyclopedia-section">
+  <h2>📚 Galactic Encyclopedia</h2>
+  <input type="text" id="searchInput" placeholder="Search celestial objects..." />
+  
+  <div class="filter-buttons">
+    <button data-type="all">All</button>
+    <button data-type="planet">Planets</button>
+    <button data-type="star">Stars</button>
+    <button data-type="galaxy">Galaxies</button>
+    <button data-type="moon">Moons</button>
+  </div>
+
+  <div class="entry-grid" id="encyclopediaEntries">
+    <!-- Entries inserted via JavaScript -->
+  </div>
+</section>
+<section id="space-mission" class="mission-section">
+  <h2>🚀 Plan Your Space Mission</h2>
+  
+  <form id="missionForm">
+    <label for="destination">Choose your destination:</label>
+    <select id="destination" required>
+      <option value="" disabled selected>Select a destination</option>
+      <option value="Mercury">Mercury</option>
+      <option value="Venus">Venus</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jupiter</option>
+      <option value="Saturn">Saturn</option>
+      <option value="Uranus">Uranus</option>
+      <option value="Neptune">Neptune</option>
+      <option value="Moon">Moon</option>
+      <option value="Asteroid Belt">Asteroid Belt</option>
+    </select>
+    
+    <label for="spacecraft">Select your spacecraft:</label>
+    <select id="spacecraft" required>
+      <option value="" disabled selected>Select a spacecraft</option>
+      <option value="Explorer I">Explorer I (Fast, small payload)</option>
+      <option value="Colony Ship">Colony Ship (Slow, large payload)</option>
+      <option value="Research Probe">Research Probe (Medium speed, sensors)</option>
+    </select>
+    
+    <label for="missionGoal">Choose your mission goal:</label>
+    <select id="missionGoal" required>
+      <option value="" disabled selected>Select a goal</option>
+      <option value="Exploration">Exploration</option>
+      <option value="Research">Research</option>
+      <option value="Colonization">Colonization</option>
+    </select>
+    
+    <button type="submit" id="launchBtn" class="launch-btn">
+      <span class="rocket">🚀</span> Launch Mission
+    </button>
+  </form>
+  
+  <div id="missionResult" class="mission-result" style="margin-top: 1rem; display:none;">
+    <h3>🚀 Mission Summary</h3>
+    <p id="missionSummary"></p>
+    <pre id="missionTimeline" class="mission-timeline"></pre>
+  </div>
+</section>
+
+
+  <section id="about" class="intro">
+    <h2>About This Website</h2>
+    <p>This website is your portal to explore the solar system and beyond. Learn fun facts, view real images, and test your space knowledge.</p>
+  </section>
+
+  <section id="planets" class="planet-grid">
+    <!-- Planet Cards -->
+    <div class="planet-card" id="mercury">
+      <img src="Mercury-PNG-Pic.png" alt="Mercury" />
+      <h2>Mercury</h2>
+      <p>The smallest planet and closest to the Sun.</p>
+    </div>
+    <div class="planet-card" id="venus">
+      <img src="venus.png" alt="Venus" />
+      <h2>Venus</h2>
+      <p>Venus is extremely hot and has a thick atmosphere.</p>
+    </div>
+    <div class="planet-card" id="earth">
+      <img src="earth.png" alt="Earth" />
+      <h2>Earth</h2>
+      <p>Our home planet, the only one known to support life.</p>
+    </div>
+    <div class="planet-card" id="mars">
+      <img src="mars.png" alt="Mars" />
+      <h2>Mars</h2>
+      <p>Known as the Red Planet, Mars has the largest volcano in the solar system.</p>
+    </div>
+    <div class="planet-card" id="jupiter">
+      <img src="jupiter.png" alt="Jupiter" />
+      <h2>Jupiter</h2>
+      <p>Jupiter is the largest planet and has a massive storm called the Great Red Spot.</p>
+    </div>
+    <div class="planet-card" id="saturn">
+      <img src="saturn.png" alt="Saturn" />
+      <h2>Saturn</h2>
+      <p>Saturn is famous for its beautiful ring system.</p>
+    </div>
+    <div class="planet-card" id="uranus">
+      <img src="uranus.png" alt="Uranus" />
+      <h2>Uranus</h2>
+      <p>Uranus rotates on its side and has faint rings.</p>
+    </div>
+    <div class="planet-card" id="neptune">
+      <img src="neptune.png" alt="Neptune" />
+      <h2>Neptune</h2>
+      <p>Neptune has strong winds and storms in its atmosphere.</p>
+    </div>
+  </section>
+  <section id="time-machine" class="time-machine-section">
+  <h2>⏳ Cosmic Time Machine</h2>
+  <p>Explore the history and future of the universe by selecting a cosmic era.</p>
+
+  <label for="timeSelect">Select Cosmic Era:</label>
+  <select id="timeSelect">
+    <option value="big-bang">The Big Bang (~13.8 billion years ago)</option>
+    <option value="early-universe">Early Universe (~13 billion years ago)</option>
+    <option value="formation-milky-way">Formation of Milky Way (~13 billion years ago)</option>
+    <option value="dinosaurs">Age of Dinosaurs (~230 million years ago)</option>
+    <option value="present">Present Day</option>
+    <option value="future-1b">1 Billion Years in the Future</option>
+    <option value="future-5b">5 Billion Years in the Future</option>
+  </select>
+
+  <div id="timeContent" class="time-content">
+    <h3 id="eraTitle"></h3>
+    <img id="eraImage" src="" alt="Cosmic Era Image" />
+    <p id="eraDescription"></p>
+  </div>
+</section>
+
+<section id="apod" class="apod-section">
+  <h2>🌌 NASA Picture of the Day</h2>
+  <div class="apod-card">
+    <img id="apodImage" src="" alt="Astronomy Picture of the Day" />
+    <div class="apod-info">
+      <h3 id="apodTitle"></h3>
+      <p id="apodExplanation"></p>
+    </div>
+  </div>
+</section>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+  </div>
+
+  <audio autoplay loop>
+    <source src="assets/space-music.mp3" type="audio/mpeg" />
+  </audio>
+<section id="quiz" class="quiz-section">
+  <h2>🌌 Galaxy Quiz Challenge</h2>
+  <p>Think you know space? Let’s find out!</p>
+
+  <!-- Start Screen -->
+  <div id="startScreen" class="quiz-center">
+    <input type="text" id="usernameInput" placeholder="Enter Your Galactic Name" />
+    <button id="startQuizBtn" class="start-btn">Start Quiz</button>
+  </div>
+
+  <!-- Quiz Box -->
+  <div class="quiz-box hidden">
+    <div class="question-text">Loading question...</div>
+    <div class="options"></div>
+    <button id="nextBtn" class="next-btn">Next</button>
+    <div class="progress-container">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="quiz-result hidden">
+    <h3>🎉 Quiz Complete!</h3>
+    <p id="scoreDisplay"></p>
+    <p>🧑‍🚀 <span id="playerNameDisplay"></span>, you’ve earned the rank:</p>
+    <h4 id="badgeDisplay" class="badge"></h4>
+    <button id="restartQuizBtn" class="start-btn">Restart</button>
+    <button id="screenshotBtn" class="start-btn">📸 Share Score</button>
+  </div>
+
+  <!-- Leaderboard -->
+  <div id="leaderboard" class="quiz-center">
+    <h3>🏆 Top 5 Space Explorers</h3>
+    <ul id="leaderboardList"></ul>
+  </div>
+
+  <!-- Sound FX -->
+  <audio id="correctSound" src="assets/correct.mp3"></audio>
+  <audio id="wrongSound" src="assets/wrong.mp3"></audio>
+  <audio id="winSound" src="assets/win.mp3"></audio>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<section id="funny-facts" class="flip-section">
+  <h2>🌠 Funny Facts About the Universe</h2>
+  <div class="flip-card-container" id="funnyFactsContainer">
+    <!-- Cards will be injected by JS -->
+  </div>
+</section>
+<section id="celestial-events" class="celestial-events-section">
+  <h2>🌠 Meteor Shower & Celestial Event Calendar</h2>
+  <p>Stay updated with the upcoming meteor showers and other celestial events!</p>
+
+  <div id="eventsList">
+    <!-- Events will be dynamically loaded here -->
+  </div>
+</section>
+<div id="nextEventCountdown" class="countdown"></div>
+
+<section id="solar-system-viewer">
+  <h2>🌌 3D Solar System Viewer</h2>
+  <iframe src="https://eyes.nasa.gov/apps/orrery/#/sc_perc" width="100%" height="600" style="border: none;"></iframe>
+  <p>Interactive model by NASA - Explore the real-time positions of planets!</p>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+
+
+<section id="games" class="games-section">
+  <h2>🕹️galay games</h2>
+
+  <div class="game-links">
+    <div class="game-card">
+      <img src="planet.png" alt="Planet Matching" />
+      <h2>🪐 Planet Matching</h2>
+      <p>Match planets with their names and facts!</p>
+      <a href="planet-matching.html" class="play-btn">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="neptune.png" alt="Guess the Planet" />
+      <h2>🧠 Guess the Planet</h2>
+      <p>Choose the correct planet based on the image!</p>
+      <a href="guess-the-planet.html" class="play-btn">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="moon.png" alt="Space Memory Game" />
+      <h2>🧩 Space Memory</h2>
+      <p>Test your memory with cosmic cards!</p>
+      <a href="space-memory.html" class="play-btn">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="buid planet.png" alt="Build Your Planet" />
+      <h2>🌍 Build Your Planet</h2>
+      <p>Create your own custom planet with color, rings, and atmosphere!</p>
+      <a href="build-your-planet.html" class="play-btn">Play Now</a>
+    </div>
+    <div class="game-card">
+  <img src="alien2.png" alt="Create Your Alien" />
+  <h2>👽 Create Your Alien</h2>
+  <p>Customize your own alien with color, eyes, and accessories!</p>
+  <a href="create-your-alien.html" class="play-btn">Play Now</a>
+</div>
+
+  </div>
+</section>
+<section id="constellation-creator" class="constellation-creator-section">
+  <div id="starProperties" class="star-properties" style="display:none; margin-top: 1rem; color: #a3d1ff;">
+  <h3>Edit Star Properties</h3>
+  <label>
+    Name: <input type="text" id="starNameInput" placeholder="Star name" />
+  </label>
+  <label>
+    Color: <input type="color" id="starColorInput" value="#a3d1ff" />
+  </label>
+  <button id="saveStarBtn">Save</button>
+  <button id="deleteStarBtn" style="background-color:#bb3333; color:#fff; margin-left: 1rem;">Delete Star</button>
+</div>
+
+  <h2>🌌 Constellation Creator</h2>
+  <p>Click to add stars, drag to connect, and create your own constellation!</p>
+
+  <canvas id="constellationCanvas" width="800" height="500" style="border: 2px solid #0077ff; border-radius: 10px; background: radial-gradient(circle at center, #000011, #000000); cursor: crosshair;"></canvas>
+  
+  <div class="buttons">
+    <button id="clearCanvasBtn">Clear All</button>
+    <button id="downloadImageBtn">Download Image</button>
+  </div>
+
+  <p><small>Click to add stars. Drag from one star to another to connect lines.</small></p>
+</section>
+
+<section id="space-logs" class="space-logs-section">
+  <h2>🌌 Share Your Space Log or Story</h2>
+  
+  <form id="logForm">
+    <input type="text" id="userName" placeholder="Your Name" required maxlength="30" />
+    <textarea id="userStory" placeholder="Write your space adventure..." rows="5" required maxlength="500"></textarea>
+    <button type="submit">Submit Your Log</button>
+  </form>
+
+  <div id="logsContainer" class="logs-container">
+    <h3>Previous Logs & Stories</h3>
+    <ul id="logsList" class="logs-list"></ul>
+  </div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
